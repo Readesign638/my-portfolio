@@ -95,7 +95,7 @@ export default function App() {
 
         <div className="flex-1 flex justify-center order-first lg:order-last">
           <div className="relative w-48 h-48 md:w-[380px] md:h-[380px] bg-[#f39200] rounded-[30%_70%_70%_30%/30%_30%_70%_70%] overflow-hidden shadow-2xl transition-transform hover:scale-105 duration-700">
-             <img src="images/profile.jpeg" alt="Realeboha Sekhitlane" className="w-full h-full object-cover" />
+             <img src="/images/profile.jpeg?v=2" alt="Realeboha Sekhitlane" />
           </div>
         </div>
       </section>
