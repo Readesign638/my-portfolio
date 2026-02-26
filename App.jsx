@@ -1,222 +1,222 @@
 import React, { useState } from 'react';
-import { Mail, Phone, ExternalLink, MessageSquare, Download, Code2, Globe, Award, Menu, X } from 'lucide-react';
+import { Mail, Download, Menu, X, Code, BookOpen, Smartphone, Layout, Monitor, ExternalLink, Smartphone as MobileIcon } from 'lucide-react';
 
-// --- Reusable Sub-Components ---
+// --- Sub-Components ---
 
-const ProjectCard = ({ img, title, desc }) => (
-  <div className="relative aspect-square overflow-hidden rounded-3xl border border-white/10 group shadow-2xl">
-    <img src={`images/${img}`} className="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt={title} />
-    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent flex flex-col justify-end p-6">
-      <h4 className="text-[#f39200] font-black text-lg uppercase tracking-widest mb-1">{title}</h4>
-      <p className="text-sm text-zinc-300 leading-snug">{desc}</p>
+const ServiceCard = ({ icon: Icon, title, desc }) => (
+  <div className="bg-[#1a1412] p-6 md:p-8 rounded-xl border border-white/5 hover:border-[#f39200]/50 transition-all group">
+    <div className="bg-[#f39200]/10 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-lg mb-6 group-hover:bg-[#f39200] group-hover:text-black transition-colors">
+      <Icon size={20} className="text-[#f39200] group-hover:text-black" />
     </div>
+    <h4 className="text-white font-bold text-base md:text-lg mb-3">{title}</h4>
+    <p className="text-zinc-400 text-xs md:text-sm leading-relaxed">{desc}</p>
   </div>
 );
 
-const SkillItem = ({ name, level, status }) => (
-  <div className="group">
-    <div className="flex justify-between mb-3 font-bold text-xl text-zinc-300">
-      <span>{name}</span>
-      <span className="text-[#f39200] text-xs uppercase tracking-widest">{status}</span>
-    </div>
-    <div className="w-full h-2.5 bg-white/5 rounded-full overflow-hidden">
-      <div className="h-full bg-[#f39200] transition-all duration-1000" style={{ width: level }}></div>
-    </div>
+const ExperienceItem = ({ date, title, company, children }) => (
+  <div className="mb-12 last:mb-0 relative pl-8 border-l-2 border-white/5">
+    <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[#f39200] shadow-[0_0_10px_#f39200]" />
+    <span className="text-[#f39200] text-[10px] font-black uppercase tracking-widest">{date}</span>
+    <h4 className="text-xl md:text-2xl font-bold text-white mt-1">{title}</h4>
+    <p className="text-zinc-500 font-medium mb-4 italic text-sm md:text-base">{company}</p>
+    <div className="text-zinc-400 text-sm leading-relaxed">{children}</div>
   </div>
 );
-
-const TimelineItem = ({ date, title, company, children }) => (
-  <div className="relative group mb-16 last:mb-0">
-    <div className="absolute -left-[58px] top-1.5 w-6 h-6 bg-[#f39200] rounded-full border-4 border-[#0f0a07] shadow-[0_0_15px_#f39200] group-hover:scale-125 transition duration-300" />
-    <div className="text-[#f39200] font-black text-base mb-2 tracking-tighter uppercase">{date}</div>
-    <div className="text-3xl md:text-4xl font-black text-white mb-2">{title}</div>
-    <span className="text-zinc-500 italic font-bold text-xl mb-4 block">{company}</span>
-    <div className="text-zinc-400 text-xl leading-relaxed max-w-3xl">{children}</div>
-  </div>
-);
-
-// --- Main Application ---
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#0f0a07] text-white selection:bg-[#f39200]/30 scroll-smooth overflow-x-hidden">
+    <div className="min-h-screen bg-[#0f0a07] text-white font-sans selection:bg-[#f39200]/30 overflow-x-hidden">
       
-      {/* Glassmorphism FAB */}
-      <a 
-        href="#contact-form" 
-        className="fixed bottom-8 right-8 z-[100] bg-[#f39200] text-black p-5 rounded-full shadow-2xl hover:scale-110 transition-all active:scale-95 group"
-      >
-        <Mail size={30} strokeWidth={2.5} />
-        <span className="absolute right-20 top-1/2 -translate-y-1/2 bg-black/90 text-[#f39200] text-xs font-black py-2 px-4 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap uppercase tracking-widest border border-[#f39200]/20 pointer-events-none">
-          Send a Message
-        </span>
-      </a>
-
       {/* Navigation */}
-      <nav className="flex justify-between items-center px-6 md:px-[10%] py-6 fixed w-full top-0 z-[150] bg-[#0f0a07]/95 backdrop-blur-xl border-b border-white/5">
-        <div className="text-2xl md:text-3xl font-black tracking-tighter text-[#f39200]">RealebohaSekhitlane</div>
+      <nav className="flex justify-between items-center px-6 md:px-[10%] py-4 md:py-5 fixed w-full top-0 z-[150] bg-[#0f0a07]/90 backdrop-blur-md border-b border-white/5">
+        {/* Scaled down logo for mobile */}
+        <div className="text-base md:text-xl font-bold text-[#f39200] tracking-tight uppercase">DevPortfolio</div>
         
-        <ul className="hidden lg:flex gap-10 text-[1rem] font-bold uppercase tracking-widest text-zinc-400">
-          <li><a href="#home" className="hover:text-[#f39200] transition">Home</a></li>
-          <li><a href="#about" className="hover:text-[#f39200] transition">About</a></li>
-          <li><a href="#skills-exp" className="hover:text-[#f39200] transition">Experience</a></li>
+        <ul className="hidden lg:flex gap-8 text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400">
+          <li><a href="#services" className="hover:text-[#f39200] transition">Services</a></li>
+          <li><a href="#about" className="hover:text-[#f39200] transition">About Me</a></li>
+          <li><a href="#experience" className="hover:text-[#f39200] transition">Experience</a></li>
+          <li><a href="#contact" className="hover:text-[#f39200] transition">Contact</a></li>
         </ul>
 
-        <div className="flex gap-4 items-center">
-          <a href="#contact-form" className="flex items-center gap-2 bg-[#f39200] text-black px-6 py-3 rounded-full font-black text-sm hover:scale-105 transition active:scale-95 shadow-xl shadow-orange-500/10">
-            <MessageSquare size={18} />
-            LET'S TALK
+        <div className="flex items-center gap-4">
+          {/* Scaled down button for mobile */}
+          <a href="#contact" className="bg-[#f39200] text-black px-4 py-1.5 md:px-6 md:py-2 rounded-full font-black text-[9px] md:text-[10px] uppercase tracking-widest hover:brightness-110 transition">
+            Let's Talk
           </a>
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="lg:hidden text-[#f39200]">
-            {isMenuOpen ? <X size={35} /> : <Menu size={35} />}
+          {/* Hamburger Icon */}
+          <button onClick={() => setIsMenuOpen(true)} className="lg:hidden text-[#f39200] p-1">
+            <Menu size={24} />
           </button>
         </div>
 
         {/* Mobile Menu Overlay */}
         <div className={`fixed inset-0 bg-[#0f0a07] z-[200] flex flex-col items-center justify-center transition-transform duration-500 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-          <button onClick={() => setIsMenuOpen(false)} className="absolute top-8 right-8 text-[#f39200]"><X size={40} /></button>
-          <ul className="text-center text-3xl font-black space-y-12 uppercase tracking-widest">
-            <li><a href="#home" onClick={() => setIsMenuOpen(false)}>Home</a></li>
-            <li><a href="#about" onClick={() => setIsMenuOpen(false)}>About</a></li>
-            <li><a href="#skills-exp" onClick={() => setIsMenuOpen(false)}>Skills</a></li>
-            <li><a href="#contact-form" onClick={() => setIsMenuOpen(false)} className="text-[#f39200]">Contact</a></li>
-          </ul>
+           <button onClick={() => setIsMenuOpen(false)} className="absolute top-6 right-6 text-[#f39200]"><X size={32} /></button>
+           <ul className="text-center space-y-8">
+             <li><a href="#services" onClick={() => setIsMenuOpen(false)} className="text-xl font-black uppercase tracking-widest">Services</a></li>
+             <li><a href="#about" onClick={() => setIsMenuOpen(false)} className="text-xl font-black uppercase tracking-widest">About Me</a></li>
+             <li><a href="#experience" onClick={() => setIsMenuOpen(false)} className="text-xl font-black uppercase tracking-widest">Experience</a></li>
+             <li><a href="#contact" onClick={() => setIsMenuOpen(false)} className="text-xl font-black text-[#f39200] uppercase tracking-widest">Contact</a></li>
+           </ul>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="flex flex-col lg:flex-row items-center min-h-screen px-6 md:px-[10%] pt-[140px] pb-20 gap-16">
-        <div className="flex-[1.4] text-center lg:text-left">
-          <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-black leading-[0.85] tracking-tighter mb-8">
-            Hi, I'm <br /><span className="text-[#f39200]">Realeboha</span> 👋
+      <section id="home" className="flex flex-col lg:flex-row items-center justify-between min-h-screen px-6 md:px-[10%] pt-32 pb-20 gap-12">
+        <div className="flex-1 text-center lg:text-left">
+          <h1 className="text-4xl md:text-7xl font-bold mb-4 leading-tight">
+            Hi, I'm <span className="text-[#f39200]">Realeboha</span> 👋
           </h1>
-          <p className="text-2xl md:text-4xl font-bold mb-6 text-zinc-300 italic">
-            Developer & SEO Specialist
+          <p className="text-base md:text-xl font-semibold text-zinc-300 mb-6">
+            Frontend Developer & Digital Marketing Enthusiast
           </p>
-          <p className="text-xl md:text-2xl text-zinc-400 mb-10 leading-relaxed max-w-[700px] mx-auto lg:mx-0">
-            Specializing in high-end WordPress development and search engine growth at <strong className="text-white">Comfort Digital (PTY) LTD</strong>. 
-            Merging technical development with data-driven SEO.
+          <p className="text-zinc-400 mb-10 max-w-lg mx-auto lg:mx-0 leading-relaxed text-sm md:text-base">
+            I craft digital solutions that combine cutting-edge technology with beautiful design. Let's turn your ideas into reality.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-6">
-            <a href="#contact-form" className="flex items-center justify-center gap-3 bg-[#f39200] text-black px-10 py-5 rounded-2xl font-black text-xl shadow-2xl hover:-translate-y-1 transition">
-              <Mail size={24} /> Contact Me
+          
+          <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-12">
+            <a href="#contact" className="bg-[#f39200] text-black px-6 py-3 rounded-lg font-bold flex items-center gap-2 hover:bg-orange-500 transition text-xs md:text-sm">
+              Contact Me <span>→</span>
             </a>
-            <a 
-  href="/RealebohaSekhitlane_CV.pdf" 
-  target="_blank" 
-  rel="noopener noreferrer"
-  className="flex items-center justify-center gap-3 border-2 border-zinc-800 px-10 py-5 rounded-2xl font-bold text-xl hover:bg-white/5 transition"
->
-  <Download size={24} /> 
-  Download CV
-</a>
+            {/* Added check for correct file path */}
+            <a href="./Realeboha_Sekhitlane_CV.pdf" download="Realeboha_Sekhitlane_CV.pdf" className="border border-zinc-700 px-6 py-3 rounded-lg font-bold flex items-center gap-2 hover:bg-white/5 transition text-zinc-300 text-xs md:text-sm">
+              <Download size={18} /> Download CV
+            </a>
+          </div>
+
+          <div className="flex justify-center lg:justify-start gap-10">
+            <div><span className="block text-xl md:text-2xl font-bold text-[#f39200]">2+</span> <span className="text-[9px] md:text-[10px] text-zinc-500 uppercase font-black tracking-widest">Years Exp</span></div>
+            <div><span className="block text-xl md:text-2xl font-bold text-[#f39200]">15+</span> <span className="text-[9px] md:text-[10px] text-zinc-500 uppercase font-black tracking-widest">Projects</span></div>
           </div>
         </div>
-        <div className="relative w-72 h-80 md:w-[450px] md:h-[550px] bg-[#f39200] rounded-3xl overflow-hidden shrink-0 shadow-[20px_20px_0px_0px_rgba(243,146,0,1)]">
-          <img src="images/profile.jpeg" alt="Realeboha" className="w-full h-full object-cover" />
+
+        <div className="flex-1 flex justify-center order-first lg:order-last">
+          <div className="relative w-48 h-48 md:w-[380px] md:h-[380px] bg-[#f39200] rounded-[30%_70%_70%_30%/30%_30%_70%_70%] overflow-hidden shadow-2xl transition-transform hover:scale-105 duration-700">
+             <img src="images/profile.jpeg" alt="Realeboha Sekhitlane" className="w-full h-full object-cover" />
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="py-20 px-6 md:px-[10%] text-center bg-black/20">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">My <span className="text-[#f39200]">Services</span></h2>
+        <p className="text-zinc-500 mb-12 md:mb-16 max-w-xl mx-auto text-[10px] uppercase tracking-widest">Comprehensive digital solutions tailored to your business needs</p>
+        
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+          <ServiceCard icon={Code} title="Web Development" desc="Custom web applications built with modern technologies for optimal performance." />
+          <ServiceCard icon={BookOpen} title="Technical Writing" desc="Clear documentation to help users understand and utilize products effectively." />
+          <ServiceCard icon={MobileIcon} title="Mobile Development" desc="Native and cross-platform mobile apps delivering seamless experiences." />
+          <ServiceCard icon={Mail} title="Email Marketing" desc="Strategic email campaigns that engage your audience and drive conversions." />
+          <ServiceCard icon={Layout} title="UI/UX Design" desc="User-centered designs combining aesthetics with functionality." />
+          <ServiceCard icon={Monitor} title="Web Design" desc="Responsive website designs that reflect your brand identity." />
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-32 px-6 md:px-[10%] bg-black/40 border-y border-white/5">
-        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-32">
-          <div className="flex-1 grid grid-cols-2 gap-6 w-full order-2 lg:order-1">
-            <ProjectCard img="weather_b91120.jfif" title="Weather App" desc="Live forecasting systems." />
-            <ProjectCard img="dental.jfif" title="Healthcare UI" desc="Clinic management UX." />
-            <ProjectCard img="code_b91160.jfif" title="Architecture" desc="Clean frontend scaling." />
-            <ProjectCard img="OIP.jfif" title="Comfort Digital" desc="SEO & Performance." />
+      <section id="about" className="py-20 px-6 md:px-[10%]">
+        <div className="flex flex-col lg:flex-row items-center gap-12 md:gap-16">
+          <div className="flex-1 grid grid-cols-2 gap-3 w-full order-last lg:order-first">
+             <img src="images/weather_b91120.jfif" className="rounded-xl grayscale hover:grayscale-0 transition duration-500 aspect-square object-cover border border-white/5" alt="Project 1" />
+             <img src="images/dental.jfif" className="rounded-xl grayscale hover:grayscale-0 transition duration-500 aspect-square object-cover border border-white/5" alt="Project 2" />
+             <img src="images/code_b91160.jfif" className="rounded-xl grayscale hover:grayscale-0 transition duration-500 aspect-square object-cover border border-white/5" alt="Project 3" />
+             <img src="images/OIP.jfif" className="rounded-xl grayscale hover:grayscale-0 transition duration-500 aspect-square object-cover border border-white/5" alt="Project 4" />
           </div>
-
-          <div className="flex-1 space-y-10 order-1 lg:order-2">
-            <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none">
-              About <span className="text-[#f39200]">Me</span>
-            </h2>
-            <p className="text-2xl md:text-3xl text-zinc-200 leading-snug font-medium italic border-l-8 border-[#f39200] pl-8">
+          
+          <div className="flex-1">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">About <span className="text-[#f39200]">Me</span></h2>
+            <h3 className="text-[10px] md:text-sm font-black text-zinc-500 mb-6 uppercase tracking-[0.2em]">Junior WordPress Front-End Developer</h3>
+            
+            <p className="text-base md:text-lg italic text-zinc-200 border-l-4 border-[#f39200] pl-6 mb-8 py-2">
               "Bridging the gap between classroom theory and professional results."
             </p>
-            <p className="text-xl md:text-2xl text-zinc-400 leading-relaxed">
-              Based in Maseru, I am a Mobile Computing student at Botho University. I optimize digital experiences through a blend of technical SEO (RankMath) and responsive WordPress architecture.
+
+            <p className="text-zinc-400 mb-8 leading-relaxed text-sm md:text-base">
+              I am Realeboha Sekhitlane, a Mobile Computing student at Botho University with hands-on industry experience in web development and technical SEO. I thrive at turning academic knowledge into real business value, and I am currently doing exactly that as a Junior WordPress Front-End Developer at <span className="text-white font-bold">Comfort Digital (PTY) LTD</span>.
             </p>
-            <div className="pt-10 space-y-6 border-t border-white/10 text-xl">
-              <div className="flex items-center gap-5">
-                <div className="bg-orange-500/10 p-4 rounded-xl text-[#f39200] shadow-xl"><Phone size={24} /></div>
-                <a href="tel:+26662803236" className="text-zinc-300 hover:text-[#f39200] font-bold">+266 6280 3236</a>
+            
+            <div className="grid grid-cols-2 gap-8 mb-10">
+              <div>
+                <h4 className="text-[#f39200] font-black text-[10px] mb-2 uppercase tracking-widest flex items-center gap-2"><Layout size={14}/> Frontend</h4>
+                <p className="text-[10px] md:text-[11px] text-zinc-500 font-bold uppercase">React, JavaScript, Tailwind, Vue.js</p>
               </div>
-              <div className="flex items-center gap-5">
-                <div className="bg-orange-500/10 p-4 rounded-xl text-[#f39200] shadow-xl"><Mail size={24} /></div>
-                <a href="mailto:realebohasekhitlane51@gmail.com" className="text-zinc-300 hover:text-[#f39200] font-bold underline decoration-[#f39200]/30 break-all">realebohasekhitlane51@gmail.com</a>
+              <div>
+                <h4 className="text-[#f39200] font-black text-[10px] mb-2 uppercase tracking-widest flex items-center gap-2"><Code size={14}/> Backend</h4>
+                <p className="text-[10px] md:text-[11px] text-zinc-500 font-bold uppercase">Node.js, MongoDB, REST APIs, PHP</p>
               </div>
+            </div>
+
+            <div className="flex gap-4">
+               <a href="#contact" className="bg-[#f39200] text-black px-6 py-3 rounded-lg font-black text-[10px] uppercase tracking-widest">Contact Me</a>
+               <a href="#services" className="border border-zinc-800 text-zinc-400 px-6 py-3 rounded-lg font-black text-[10px] uppercase tracking-widest">Portfolio</a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Experience & Skills */}
-      <section id="skills-exp" className="py-32 px-6 md:px-[10%]">
-        <div className="grid lg:grid-cols-2 gap-24">
-          <div>
-            <h3 className="text-4xl font-black mb-16 border-b-4 border-[#f39200] inline-block pb-4 tracking-tighter uppercase">Technical Skills</h3>
-            <div className="space-y-12">
-              <SkillItem name="WordPress / RankMath SEO" level="80%" status="Regular" />
-              <SkillItem name="React.js / Frontend Architecture" level="50%" status="Familiar" />
-              <SkillItem name="Ionic / Cordova Mobile Dev" level="30%" status="Learning" />
+      {/* Experience Section */}
+      <section id="experience" className="py-20 px-6 md:px-[10%] bg-black/20">
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 md:mb-16 text-center">Professional <span className="text-[#f39200]">Journey</span></h2>
+        <div className="max-w-3xl mx-auto">
+          
+          <ExperienceItem 
+            date="2025 - PRESENT" 
+            title="Junior WordPress Front-End Developer" 
+            company="Comfort Digital (PTY) LTD"
+          >
+            <p className="mb-4">Delivering end-to-end WordPress development and site audits in a live agency environment. Implementing technical SEO strategies with RankMath to improve search visibility and page performance, while handling ongoing site maintenance for client projects.</p>
+            <div className="bg-white/5 p-4 md:p-5 rounded-lg border border-white/5">
+              <p className="font-bold text-white text-[10px] mb-2 uppercase tracking-widest flex items-center gap-2">
+                <ExternalLink size={14} className="text-[#f39200]"/> Major Contribution:
+              </p>
+              <p className="text-xs italic mb-4">Co-contributor to the 2025 Digital Marketing ROI White Paper, where I owned the technical side: building the site environment, conducting SEO audits, and optimizing performance benchmarks that fed directly into the report's findings.</p>
+              <a href="#" className="text-[#f39200] text-[10px] font-black uppercase tracking-widest flex items-center gap-1 hover:underline">
+                View Project <ExternalLink size={12} />
+              </a>
             </div>
-          </div>
+          </ExperienceItem>
 
-          <div>
-            <h3 className="text-4xl font-black mb-16 border-b-4 border-[#f39200] inline-block pb-4 tracking-tighter uppercase">Experience</h3>
-            <div className="border-l-4 border-white/5 pl-12">
-              <TimelineItem 
-                date="2025 - PRESENT" 
-                title="WordPress Dev Intern" 
-                company="Comfort Digital (PTY) LTD"
-              >
-                <div className="space-y-8">
-                  <p>Leading site audits and maintenance. Implementing RankMath SEO strategies to maximize organic growth and page performance.</p>
-                  
-                  {/* Flagship Project Highlight */}
-                  <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-[#f39200]/40 transition shadow-2xl">
-                    <div className="flex items-center gap-3 mb-4 text-[#f39200]">
-                      <Award size={24} />
-                      <span className="text-sm font-black uppercase tracking-widest">Contributor</span>
-                    </div>
-                    <p className="text-xl md:text-2xl text-white font-bold mb-6 leading-tight">
-                      Technical audit lead for the <span className="text-[#f39200] underline underline-offset-8">2025 Digital Marketing ROI White Paper</span>.
-                    </p>
-                    <a href="https://comfortdigital.co.za/digital-marketing-roi-white-paper-2025/" target="_blank" className="flex items-center gap-2 text-sm font-black text-[#f39200] uppercase tracking-widest hover:text-white transition">
-                      View White Paper <ExternalLink size={16} />
-                    </a>
-                  </div>
-                </div>
-              </TimelineItem>
+          <ExperienceItem 
+            date="2025" 
+            title="Frontend Development Training" 
+            company="Codveda Technology"
+          >
+            <p>Built a practical foundation in modern front-end development, working with React.js, Bootstrap, and Tailwind CSS inside a professional development environment (VS Code). Focused on industry-standard architecture and responsive design principles.</p>
+          </ExperienceItem>
 
-              <TimelineItem date="2022 - 2027" title="BSc Mobile Computing" company="Botho University">
-                <p>Developing high-level software architecture for mobile applications and modern web standards.</p>
-              </TimelineItem>
-            </div>
-          </div>
+          <ExperienceItem 
+            date="2022 - 2027" 
+            title="BSc Honors Mobile Computing" 
+            company="Botho University"
+          >
+            <p>Focused on high-level software architecture and responsive design principles for mobile and web platforms.</p>
+          </ExperienceItem>
+
         </div>
       </section>
 
-      {/* Contact Form */}
-      <section id="contact-form" className="py-32 px-6 md:px-[10%] bg-[#f39200]">
-        <div className="max-w-4xl mx-auto text-black">
-          <h3 className="text-6xl md:text-8xl font-black mb-12 tracking-tighter">Let's <br />Build.</h3>
-          <form action="https://formspree.io/f/xzdakknq" method="POST" className="space-y-8">
-            <div className="grid md:grid-cols-2 gap-8">
-              <input type="text" name="name" required className="bg-black/10 border-b-4 border-black p-6 font-black text-2xl outline-none placeholder:text-black/30" placeholder="NAME" />
-              <input type="email" name="email" required className="bg-black/10 border-b-4 border-black p-6 font-black text-2xl outline-none placeholder:text-black/30" placeholder="EMAIL" />
+      {/* Contact Form Section */}
+      <section id="contact" className="py-20 px-6 md:px-[10%]">
+        <div className="max-w-4xl mx-auto bg-[#1a1412] p-8 md:p-16 rounded-3xl border border-white/5">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Let's <span className="text-[#f39200]">Work Together</span></h2>
+            <p className="text-zinc-500 text-sm">Have a project in mind? Reach out and let's make it happen.</p>
+          </div>
+          <form className="grid gap-6">
+            <div className="grid md:grid-cols-2 gap-6">
+              <input type="text" placeholder="Name" className="bg-black/50 border border-white/10 p-4 rounded-xl outline-none focus:border-[#f39200] transition text-sm" />
+              <input type="email" placeholder="Email" className="bg-black/50 border border-white/10 p-4 rounded-xl outline-none focus:border-[#f39200] transition text-sm" />
             </div>
-            <textarea name="message" required rows="4" className="w-full bg-black/10 border-b-4 border-black p-6 font-black text-2xl outline-none placeholder:text-black/30" placeholder="TELL ME ABOUT YOUR PROJECT..."></textarea>
-            <button type="submit" className="w-full bg-black text-[#f39200] py-8 text-2xl font-black uppercase shadow-2xl hover:bg-zinc-900 transition active:scale-95">Send Message</button>
+            <textarea placeholder="Your Message" rows="5" className="bg-black/50 border border-white/10 p-4 rounded-xl outline-none focus:border-[#f39200] transition text-sm"></textarea>
+            <button className="bg-[#f39200] text-black py-4 rounded-xl font-black uppercase tracking-widest hover:brightness-110 transition text-sm">Send Message</button>
           </form>
         </div>
       </section>
 
-      <footer className="py-16 text-center border-t border-white/5 text-zinc-500 font-black tracking-[0.4em] text-xs uppercase">
-        &copy; 2026 REALEBOHA SEKHITLANE &bull; DEVELOPED IN LESOTHO
+      <footer className="py-12 text-center border-t border-white/5 text-[8px] md:text-[9px] text-zinc-600 font-black uppercase tracking-[0.4em]">
+        &copy; 2026 REALEBOHA SEKHITLANE &bull; BUILT IN LESOTHO
       </footer>
     </div>
   );
