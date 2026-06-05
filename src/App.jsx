@@ -296,9 +296,9 @@ export default function App() {
                     <GraduationCap size={24} className="text-[#f39200]" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-white">Bachelor of Science</h3>
-                    <p className="text-[#f39200] text-sm font-bold">Mobile Computing</p>
-                  </div>
+            <h3 className="text-xl font-black text-white">Bachelor of Science</h3>
+            <p className="text-[#f39200] text-sm font-bold">Honours in Mobile Computing</p>
+            </div>
                 </div>
                 <p className="text-zinc-400 text-sm mb-2">Botho University</p>
                 <p className="text-zinc-500 text-xs mb-3">2022 - 2027</p>
