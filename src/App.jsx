@@ -329,7 +329,7 @@ export default function App() {
 
        {/* Certifications Section */}
 <section id="certificates" className="py-16 md:py-20 px-5 md:px-[10%] bg-black/30 reveal">
-  <div className="max-w-6xl mx-auto">
+  <div className="max-w-7xl mx-auto">
     <div className="text-center mb-10 md:mb-12">
       <div className="inline-flex items-center gap-2 bg-[#f39200]/10 px-4 py-2 rounded-full mb-4 fade-in-up">
         <Award size={14} className="text-[#f39200] float-icon" />
@@ -343,9 +343,9 @@ export default function App() {
       </p>
     </div>
 
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
       
-      {/* NEW: Virtual Internship Program Certificate */}
+      {/* Virtual Internship Program Certificate */}
       <div className="fade-in-scale delay-100 card-hover">
         <CertCard 
           title="Virtual Internship Program" 
@@ -357,7 +357,7 @@ export default function App() {
         />
       </div>
       
-      {/* NEW: Career Webinars Explorer Level */}
+      {/* Career Webinars Explorer Level */}
       <div className="fade-in-scale delay-150 card-hover">
         <CertCard 
           title="Career Webinars - Explorer Level" 
@@ -369,6 +369,7 @@ export default function App() {
         />
       </div>
       
+      {/* WordPress Junior Maintainer */}
       <div className="fade-in-scale delay-200 card-hover">
         <CertCard 
           title="WordPress Junior Maintainer" 
@@ -379,6 +380,7 @@ export default function App() {
         />
       </div>
       
+      {/* She Code Africa Mentorship */}
       <div className="fade-in-scale delay-250 card-hover">
         <CertCard 
           title="Mentorship Program - Cycle 3" 
@@ -390,6 +392,7 @@ export default function App() {
         />
       </div>
       
+      {/* Basics of Digital Marketing */}
       <div className="fade-in-scale delay-300 card-hover">
         <CertCard 
           title="Basics of Digital Marketing" 
@@ -400,6 +403,7 @@ export default function App() {
         />
       </div>
       
+      {/* Frontend Development Internship */}
       <div className="fade-in-scale delay-350 card-hover">
         <CertCard 
           title="Frontend Development Internship" 
@@ -410,6 +414,7 @@ export default function App() {
         />
       </div>
       
+      {/* Bridgia Certification */}
       <div className="fade-in-scale delay-400 card-hover">
         <CertCard 
           title="Bridgia Certification" 
@@ -420,6 +425,7 @@ export default function App() {
         />
       </div>
       
+      {/* Google Skillshop Award */}
       <div className="fade-in-scale delay-450 card-hover">
         <CertCard 
           title="Google Skillshop Award" 
