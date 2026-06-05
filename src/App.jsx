@@ -327,33 +327,113 @@ export default function App() {
           </div>
         </section>
 
-        {/* Certifications Section */}
-        <section id="certificates" className="py-16 md:py-20 px-5 md:px-[10%] bg-black/30 reveal">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-10 md:mb-12">
-              <div className="inline-flex items-center gap-2 bg-[#f39200]/10 px-4 py-2 rounded-full mb-4 fade-in-up">
-                <Award size={14} className="text-[#f39200] float-icon" />
-                <span className="text-[#f39200] text-[11px] font-black uppercase tracking-wider">Professional Development</span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter mb-3 fade-in-up delay-100">
-                Certifications & <span className="text-[#f39200]">Achievements</span>
-              </h2>
-              <p className="text-zinc-400 text-sm md:text-base max-w-2xl mx-auto fade-in-up delay-200">
-                Industry-recognized certifications that validate my skills and knowledge
-              </p>
-            </div>
+       {/* Certifications Section */}
+<section id="certificates" className="py-16 md:py-20 px-5 md:px-[10%] bg-black/30 reveal">
+  <div className="max-w-6xl mx-auto">
+    <div className="text-center mb-10 md:mb-12">
+      <div className="inline-flex items-center gap-2 bg-[#f39200]/10 px-4 py-2 rounded-full mb-4 fade-in-up">
+        <Award size={14} className="text-[#f39200] float-icon" />
+        <span className="text-[#f39200] text-[11px] font-black uppercase tracking-wider">Professional Development</span>
+      </div>
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter mb-3 fade-in-up delay-100">
+        Certifications & <span className="text-[#f39200]">Achievements</span>
+      </h2>
+      <p className="text-zinc-400 text-sm md:text-base max-w-2xl mx-auto fade-in-up delay-200">
+        Industry-recognized certifications that validate my skills and knowledge
+      </p>
+    </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-              <div className="fade-in-scale delay-100 card-hover"><CertCard title="WordPress Junior Maintainer" issuer="Comfort Digital" date="May 20, 2026" skills={["WordPress Admin", "Security", "SEO"]} icon="wordpress" /></div>
-              <div className="fade-in-scale delay-150 card-hover"><CertCard title="Mentorship Program - Cycle 3" issuer="She Code Africa x HP" date="March 2026" skills={["Leadership", "Mobile Dev", "Networking"]} icon="users" badge="Mentee" /></div>
-              <div className="fade-in-scale delay-200 card-hover"><CertCard title="Basics of Digital Marketing" issuer="UniAthena x Cambridge" date="April 17, 2025" skills={["Digital Marketing", "SEO"]} icon="marketing" /></div>
-              <div className="fade-in-scale delay-250 card-hover"><CertCard title="Frontend Development Internship" issuer="Codveda Technologies" date="November 23, 2025" skills={["React.js", "API Integration"]} icon="code" /></div>
-              <div className="fade-in-scale delay-300 card-hover"><CertCard title="Bridgia Certification" issuer="Bridgia" date="2025" skills={["Career Readiness"]} icon="bridge" /></div>
-              <div className="fade-in-scale delay-350 card-hover"><CertCard title="Google Skillshop Award" issuer="Google" date="2025" skills={["Digital Skills"]} icon="google" note="Login required" /></div>
-            </div>
-          </div>
-        </section>
-
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      
+      {/* NEW: Virtual Internship Program Certificate */}
+      <div className="fade-in-scale delay-100 card-hover">
+        <CertCard 
+          title="Virtual Internship Program" 
+          issuer="Virtual Internships" 
+          date="July - September 2025" 
+          skills={["360 Hours", "Remote Work", "Group Projects"]} 
+          icon="code" 
+          badge="Completion"
+        />
+      </div>
+      
+      {/* NEW: Career Webinars Explorer Level */}
+      <div className="fade-in-scale delay-150 card-hover">
+        <CertCard 
+          title="Career Webinars - Explorer Level" 
+          issuer="Virtual Internships" 
+          date="2025" 
+          skills={["AI Transformation", "Career Options", "Time Management"]} 
+          icon="marketing" 
+          badge="3 Webinars"
+        />
+      </div>
+      
+      <div className="fade-in-scale delay-200 card-hover">
+        <CertCard 
+          title="WordPress Junior Maintainer" 
+          issuer="Comfort Digital" 
+          date="May 20, 2026" 
+          skills={["WordPress Admin", "Security", "SEO"]} 
+          icon="wordpress" 
+        />
+      </div>
+      
+      <div className="fade-in-scale delay-250 card-hover">
+        <CertCard 
+          title="Mentorship Program - Cycle 3" 
+          issuer="She Code Africa x HP" 
+          date="March 2026" 
+          skills={["Leadership", "Mobile Dev", "Networking"]} 
+          icon="users" 
+          badge="Mentee" 
+        />
+      </div>
+      
+      <div className="fade-in-scale delay-300 card-hover">
+        <CertCard 
+          title="Basics of Digital Marketing" 
+          issuer="UniAthena x Cambridge" 
+          date="April 17, 2025" 
+          skills={["Digital Marketing", "SEO"]} 
+          icon="marketing" 
+        />
+      </div>
+      
+      <div className="fade-in-scale delay-350 card-hover">
+        <CertCard 
+          title="Frontend Development Internship" 
+          issuer="Codveda Technologies" 
+          date="November 23, 2025" 
+          skills={["React.js", "API Integration"]} 
+          icon="code" 
+        />
+      </div>
+      
+      <div className="fade-in-scale delay-400 card-hover">
+        <CertCard 
+          title="Bridgia Certification" 
+          issuer="Bridgia" 
+          date="2025" 
+          skills={["Career Readiness"]} 
+          icon="bridge" 
+        />
+      </div>
+      
+      <div className="fade-in-scale delay-450 card-hover">
+        <CertCard 
+          title="Google Skillshop Award" 
+          issuer="Google" 
+          date="2025" 
+          skills={["Digital Skills"]} 
+          icon="google" 
+          note="Login required" 
+        />
+      </div>
+      
+    </div>
+  </div>
+</section>
         {/* Skills Section */}
         <section id="skills-exp" className="py-16 md:py-20 px-5 md:px-[10%] reveal">
           <div className="text-center mb-10 md:mb-12">
